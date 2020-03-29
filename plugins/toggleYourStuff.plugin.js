@@ -14,7 +14,7 @@ toggleYourStuff = (function() {
     }
 
     getVersion() {
-      return "1.1.1";
+      return "1.1.2";
     }
 
     getAuthor() {
@@ -129,7 +129,7 @@ toggleYourStuff = (function() {
       settings.cancelDefault = html.querySelector("input[name=\"cancelDefault\"]").checked;
       settings.dontSave = html.querySelector("input[name=\"dontSave\"]").checked;
       settings._note = "The plugin uses the keycodes for detecting a match. The hotkeys are for display in settings only.";
-      return bdPluginStorage.set("toggleYourStuff", "settings", settings);
+      return BdApi.saveData("toggleYourStuff", "settings", settings);
     }
 
   };
@@ -199,7 +199,7 @@ toggleYourStuff = (function() {
 
   getSettings = function() {
     var k, ref, ref1, v;
-    settings = (ref = bdPluginStorage.get("toggleYourStuff", "settings")) != null ? ref : {};
+    settings = (ref = BdApi.loadData("toggleYourStuff", "settings")) != null ? ref : {};
     ref1 = {
       cancelDefault: false,
       dontSave: false,
